@@ -9,7 +9,7 @@ else {
 
 android
     compileSdkVersion 26
-    defaultConfig {
+    defaultConfig
         if (buildAsApplication) {
             applicationId "org.stjr.srb2tsourd3rd"
         }
