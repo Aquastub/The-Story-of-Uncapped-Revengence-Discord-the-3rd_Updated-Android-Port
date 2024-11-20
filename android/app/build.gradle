@@ -7,7 +7,7 @@ else {
     apply plugin: 'com.android.library'
 }
 
-android {
+android
     compileSdkVersion 26
     defaultConfig {
         if (buildAsApplication) {
