@@ -11,7 +11,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         if (buildAsApplication) {
-            applicationId "org.stjr.srb2"
+            applicationId "org.stjr.srb2tsourd3rd"
         }
 
         minSdkVersion 14
@@ -44,7 +44,8 @@ android {
                             'zones.pk3',
                             'player.dta',
                             'patch.pk3', 'patch_music.pk3',
-                            'music.dta']
+                            'music.dta'
+'tsourd3rd.pk3']
                     ))
                 }
             }
@@ -54,7 +55,7 @@ android {
         }
 
         // Lactozilla: This formats the application package's name.
-        def srb2PackageName = "srb2-android"
+        def srb2PackageName = "srb2-tsourd3rd-android"
 
         // Game version string
         srb2PackageName += "-v" + (defaultConfig.versionName).replace(".", "")
@@ -121,7 +122,7 @@ android {
             variant.outputs.each { output ->
                 def outputFile = output.outputFile
                 if (outputFile != null && outputFile.name.endsWith(".aar")) {
-                    def fileName = "org.stjr.srb2.aar";
+                    def fileName = "org.stjr.srb2tsourd3rd.aar";
                     output.outputFile = new File(outputFile.parent, fileName);
                 }
             }
