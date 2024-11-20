@@ -7,17 +7,17 @@ else {
     apply plugin: 'com.android.library'
 }
 
-android
+android {
     compileSdkVersion 26
-    defaultConfig
+    defaultConfig {
         if (buildAsApplication) {
-            applicationId "org.stjr.srb2tsourd3rd"
+            applicationId "org.stjr.srb2"
         }
 
         minSdkVersion 14
         targetSdkVersion 26
-        versionCode 22100
-        versionName "2.2.10"
+        versionCode 22131
+        versionName "2.2.13"
         externalNativeBuild {
             ndkBuild {
                 arguments "APP_PLATFORM=android-16"
@@ -33,7 +33,7 @@ android
                 dimension "assets"
             }
         }
-        applicationVariants.all  variant ->
+        applicationVariants.all { variant ->
             if (variant.getFlavorName() == 'gameNoAssets') {
                 variant.mergeAssetsProvider.get().doLast {
                     println("Removing game assets from the application package")
@@ -44,8 +44,8 @@ android
                             'zones.pk3',
                             'player.dta',
                             'patch.pk3', 'patch_music.pk3',
-                            'music.dta'
-'tsourd3rd.pk3']
+                            'music.dta',
+                            'modelpacks/default.zip']
                     ))
                 }
             }
@@ -54,7 +54,7 @@ android
             useBuildDate = false
         }
 
-        // Lactozilla: This formats the application package's name.
+        // This generates the APK filename
         def srb2PackageName = "srb2-tsourd3rd-android"
 
         // Game version string
@@ -85,7 +85,7 @@ android
         }
     }
 
-    // Lactozilla: This task executes the comptime script.
+    // This task executes the comptime script
     task generateCompTime(type: Exec) {
         def comptimeScript = 'comptime'
 
@@ -114,7 +114,7 @@ android
                 path 'jni/Android.mk'
             }
         }
-       
+
     }
 
     if (buildAsLibrary) {
