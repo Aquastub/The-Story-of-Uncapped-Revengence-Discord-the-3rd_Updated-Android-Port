@@ -33,7 +33,7 @@ android
                 dimension "assets"
             }
         }
-        applicationVariants.all { variant ->
+        applicationVariants.all  variant ->
             if (variant.getFlavorName() == 'gameNoAssets') {
                 variant.mergeAssetsProvider.get().doLast {
                     println("Removing game assets from the application package")
