@@ -23,5 +23,5 @@ jobs:
       run: cd android && ./gradlew assemblegameFull
     - uses: actions/upload-artifact@v3
       with:
-        name: srb2
+        name: srb2-tsourd3rd
         path: android/app/build/outputs/apk/gameFull/
